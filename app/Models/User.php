@@ -44,4 +44,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Check the 'is_admin' flag on User model
+     * 
+     * @return bool
+     */
+    public function isAdmin(): bool {
+        return $this->is_admin;
+    }
 }
