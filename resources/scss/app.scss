@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'variables';
+@import 'typography';
+
+@layer base {
+    html {
+        font-family: $aspira-font;
+        font-weight: 400;
+    }
+}
+
+.sw-blue {
+    background-color: $sw-blue;
+}
+
+.sw-blue-accent-light {
+    background-color: $sw-blue-accent-light;
+}
+
+.sw-blue-accent-dark {
+    background-color: $sw-blue-accent-dark;
+}
+
+.font-regular {
+    font-family: $aspira-font;
+    font-weight: 400;
+}
+
+.font-light {
+    font-family: $aspira-font;
+    font-weight: 300;
+}
+
+.font-bold {
+    font-family: $aspira-font;
+    font-weight: 600;
+}
+
+h1 {
+    font-family: $aspira-font;
+    font-weight: 400;
+}

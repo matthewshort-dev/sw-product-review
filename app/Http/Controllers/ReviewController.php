@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
 use Illuminate\Support\Facades\Gate;
 
 class ReviewController extends Controller
@@ -11,9 +13,11 @@ class ReviewController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
-        //
+        return Inertia::render('Reviews/Index', [
+            //
+        ]);
     }
 
     /**
