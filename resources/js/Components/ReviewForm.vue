@@ -6,7 +6,7 @@
                 <h1 class="mb-4 text-lg sm:text-2xl">Submit Your Review</h1>
                 <form
                     class="flex flex-col"    
-                    @submit.prevent="form.post(route('reviews.store')), { onSuccess: () => form.reset() }"
+                    @submit.prevent="form.post(route('reviews.store'), { onSuccess: () => form.reset() })"
                 >
                     <div class="mb-4">
                         <label for="review-title" class="block text-sm sm:text-base font-medium text-gray-700">
@@ -41,18 +41,23 @@
                         <InputError v-if="form.errors.review_text" :message="form.errors.review_text" class="mt-1" id="review-text-error" />
                     </div>
                     <div class="mb-4">
-                        <div class="mt-4">
-                        <h3>Add Image (optional)</h3>
-                        <div class="flex items-center bg-white rounded-lg mt-1">
-                            <input class="hidden" type="file" @change="handleFileChange" accept="image/*" id="file-input" />
-                            <label for="file-input" class="border border-gray-300 gray-100 px-4 py-2 m-2 rounded-sm cursor-pointer hover:bg-gray-200 transition-colors duration-300">
+                        <h3 id="file-upload-header" class="block text-sm sm:text-base font-medium text-gray-700 mt-4">Add Image (optional)</h3>
+                        <div class="flex items-center border border-gray-300 bg-white rounded-lg mt-1" role="group" aria-labelledby="file-upload-header">
+                            <input
+                                class="hidden"
+                                type="file"
+                                @change="handleFileChange"
+                                accept="image/*"
+                                id="file-input"
+                                aria-describedby="file-input-description"
+                            />
+                            <label for="file-input" class="border border-gray-300 bg-gray-100 text-sm sm:text-base font-bold text-gray-700 px-4 py-2 m-2 rounded-sm cursor-pointer hover:bg-gray-200 transition-colors duration-300">
                                 Select Files
                             </label>
-                            <span class="ml-4 text-gray-400">
-                                {{ selectedFile ? selectedFile.name : 'No file chosen...' }}
+                            <span id="file-input-description" class="ml-4 text-sm sm:text-base text-gray-400">
+                                {{ selectedFile ? selectedFile.name : 'No file chosen.' }}
                             </span>
                         </div>
-                    </div>
                     </div>
                     <PrimaryButton class="mt-8 justify-center">Submit Review</PrimaryButton>
                 </form>
