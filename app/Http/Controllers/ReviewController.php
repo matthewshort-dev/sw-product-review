@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Review;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -31,9 +32,16 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $validated = $request->validate([
+            'review_title' => 'string|max:200',
+            'review_text' => 'string|max:2000'
+        ]);
+
+        $request->user()->reviews()->create($validated);
+
+        return redirect(route('reviews.index'));
     }
 
     /**
