@@ -40,11 +40,17 @@
                         ></textarea>
                         <InputError v-if="form.errors.review_text" :message="form.errors.review_text" class="mt-1" id="review-text-error" />
                     </div>
+                    <div>
+                        <label class="block text-sm sm:text-base font-medium text-gray-700">
+                            Rating<span aria-hidden="true" class="text-red-700 pl-px">*</span>
+                        </label>
+                        <StarRatingPicker v-model="rating" required/>
+                    </div>
                     <div class="mb-4">
                         <h3 id="file-upload-header" class="block text-sm sm:text-base font-medium text-gray-700 mt-4">Add Image (optional)</h3>
                         <div class="flex items-center border border-gray-300 bg-white rounded-lg mt-1" role="group" aria-labelledby="file-upload-header">
                             <input
-                                class="hidden"
+                                class="sr-only"
                                 type="file"
                                 @change="handleFileChange"
                                 accept="image/*"
@@ -55,7 +61,7 @@
                                 Select Files
                             </label>
                             <span id="file-input-description" class="ml-4 text-sm sm:text-base text-gray-400">
-                                {{ selectedFile ? selectedFile.name : 'No file chosen.' }}
+                                {{ selectedFile ? selectedFile.name : 'No file chosen' }}
                             </span>
                         </div>
                     </div>
@@ -70,6 +76,7 @@
 <script setup>
     import InputError from '@/Components/InputError.vue';
     import PrimaryButton from '@/Components/PrimaryButton.vue';
+    import StarRatingPicker from '@/Components/StarRatingPicker.vue';
     import { useForm } from '@inertiajs/vue3';
     import { ref } from 'vue';
 
@@ -79,6 +86,7 @@
     });
 
     const selectedFile = ref(null);
+    const rating = ref(0);
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
