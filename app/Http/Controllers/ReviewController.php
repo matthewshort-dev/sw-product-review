@@ -36,7 +36,8 @@ class ReviewController extends Controller
     {
         $validated = $request->validate([
             'review_title' => 'string|max:200',
-            'review_text' => 'string|max:2000'
+            'review_text' => 'string|max:2000',
+            'rating' => 'integer|min:1|max:5'
         ]);
 
         $request->user()->reviews()->create($validated);

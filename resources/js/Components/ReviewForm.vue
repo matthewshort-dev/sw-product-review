@@ -7,6 +7,7 @@
                 <form
                     class="flex flex-col"    
                     @submit.prevent="form.post(route('reviews.store'), { onSuccess: () => form.reset() })"
+                    novalidate
                 >
                     <div class="mb-4">
                         <label for="review-title" class="block text-sm sm:text-base font-medium text-gray-700">
@@ -44,7 +45,8 @@
                         <label class="block text-sm sm:text-base font-medium text-gray-700">
                             Rating<span aria-hidden="true" class="text-red-700 pl-px">*</span>
                         </label>
-                        <StarRatingPicker v-model="rating" required/>
+                        <StarRatingPicker :model-value="form.rating" @update:model-value="updateRating" required/>
+                        <InputError v-if="form.errors.rating" :message="form.errors.rating" class="mt-1" />
                     </div>
                     <div class="mb-4">
                         <h3 id="file-upload-header" class="block text-sm sm:text-base font-medium text-gray-700 mt-4">Add Image (optional)</h3>
@@ -65,7 +67,7 @@
                             </span>
                         </div>
                     </div>
-                    <PrimaryButton class="mt-8 justify-center">Submit Review</PrimaryButton>
+                    <PrimaryButton class="mt-8 justify-center" :disabled="form.processing">Submit Review</PrimaryButton>
                 </form>
             </div>
         </div>
@@ -83,10 +85,10 @@
     const form = useForm({
         review_title: '',
         review_text: '',
+        rating: 0
     });
 
     const selectedFile = ref(null);
-    const rating = ref(0);
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -94,5 +96,9 @@
         if (file) {
             selectedFile.value = file;
         }
+    };
+
+    const updateRating = (value) => {
+        form.rating = value;
     };
 </script>

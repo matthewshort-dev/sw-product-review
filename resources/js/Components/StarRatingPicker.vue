@@ -22,6 +22,7 @@
                 @blur="handleMouseLeave()"
                 class="sr-only"
                 :aria-label="`${starIndex} star${starIndex !== 1 ? 's' : ''}`"
+                :required="props.required"
             />
                 <svg
                     xmlns="http://www.w3.org/2000/svg" 
@@ -43,6 +44,10 @@
         modelValue: {
             type: Number,
             default: 0
+        },
+        required: {
+            type: Boolean,
+            default: false
         }
     });
 

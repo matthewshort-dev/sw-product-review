@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('review_title');
             $table->string('review_text');
+            $table->unsignedInteger('rating')->default(0);
             $table->timestamps();
         });
     }
