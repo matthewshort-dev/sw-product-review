@@ -18,7 +18,7 @@
                             type="text"
                             required
                             aria-required="true"
-                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"
                             :aria-invalid="form.errors.review_title ? 'true' : 'false'"
                             :aria-describedby="form.errors.review_title ? 'review-title-error' : undefined"
                         />
@@ -34,7 +34,7 @@
                             required
                             aria-required="true"
                             rows="4"
-                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"
                             :aria-invalid="form.errors.review_text ? 'true' : 'false'"
                             :aria-describedby="form.errors.review_text ? 'review-text-error' : undefined"
                         ></textarea>
