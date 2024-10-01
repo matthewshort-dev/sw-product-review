@@ -17,7 +17,10 @@ class ReviewController extends Controller
     public function index(): Response
     {
         return Inertia::render('Reviews/Index', [
-            //
+            'reviews' => Review::select('reviews.*', 'users.name as user_name')
+                ->join('users', 'reviews.user_id', '=', 'users.id')
+                ->latest()
+                ->get()
         ]);
     }
 

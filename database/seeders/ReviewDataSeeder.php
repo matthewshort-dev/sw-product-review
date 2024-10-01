@@ -22,6 +22,7 @@ class ReviewDataSeeder extends Seeder
                     'rating' => 5,
                     'created_at' => '2024-09-30 21:05:42',
                     'updated_at' => '2024-09-30 21:05:42',
+                    'image_url' => "https://media.sweetwater.com/m/test/3ed502f558k3JKPci3o0PtekrBhQXQ7W6qHUnq6h.webp?width=800&optimize=medium",
                 ],
                 [
                     'user_id' => 3,
@@ -30,6 +31,7 @@ class ReviewDataSeeder extends Seeder
                     'rating' => 5,
                     'created_at' => '2024-09-30 21:05:42',
                     'updated_at' => '2024-09-30 21:05:42',
+                    'image_url' => "https://media.sweetwater.com/m/test/3ed502f558k3JKPci3o0PtekrBhQXQ7W6qHUnq6h.webp?width=800&optimize=medium",
                 ],
                 [
                     'user_id' => 4,
@@ -38,6 +40,7 @@ class ReviewDataSeeder extends Seeder
                     'rating' => 4,
                     'created_at' => '2024-09-30 21:05:42',
                     'updated_at' => '2024-09-30 21:05:42',
+                    'image_url' => "https://media.sweetwater.com/m/test/3ed502f558k3JKPci3o0PtekrBhQXQ7W6qHUnq6h.webp?width=800&optimize=medium",
                 ],
                 [
                     'user_id' => 5,
@@ -46,6 +49,7 @@ class ReviewDataSeeder extends Seeder
                     'rating' => 5,
                     'created_at' => '2024-09-30 21:05:42',
                     'updated_at' => '2024-09-30 21:05:42',
+                    'image_url' => "https://media.sweetwater.com/m/test/3ed502f558k3JKPci3o0PtekrBhQXQ7W6qHUnq6h.webp?width=800&optimize=medium",
                 ],
                 [
                     'user_id' => 6,
@@ -54,6 +58,7 @@ class ReviewDataSeeder extends Seeder
                     'rating' => 5,
                     'created_at' => '2024-09-30 21:05:42',
                     'updated_at' => '2024-09-30 21:05:42',
+                    'image_url' => "https://media.sweetwater.com/m/test/3ed502f558k3JKPci3o0PtekrBhQXQ7W6qHUnq6h.webp?width=800&optimize=medium",
                 ],
                 [
                     'user_id' => 7,
@@ -62,6 +67,7 @@ class ReviewDataSeeder extends Seeder
                     'rating' => 5,
                     'created_at' => '2024-09-30 21:05:42',
                     'updated_at' => '2024-09-30 21:05:42',
+                    'image_url' => "https://media.sweetwater.com/m/test/3ed502f558k3JKPci3o0PtekrBhQXQ7W6qHUnq6h.webp?width=800&optimize=medium",
                 ],
             ]
         );

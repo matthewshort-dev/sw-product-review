@@ -47,7 +47,7 @@ class AdminUserSeeder extends Seeder
                     'is_admin' => false,
                 ],
                 [
-                    'name' => 'Racehl P',
+                    'name' => 'Rachel P',
                     'email' => 'rachel@hausmail.com',
                     'password' => Hash::make('password'),
                     'is_admin' => false,
