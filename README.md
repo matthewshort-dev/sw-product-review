@@ -25,6 +25,7 @@ Install my-project with npm
   - `php artisan key:generate`
 #### 6. Run migration and seed the database:
   - `php artisan migrate --seed`
+  - If you've already run migrations and want to reseed the db, be sure to run `php artisan migrate:fresh --seed` to avoid potential conflicts.
 #### 7. In separate terminal tabs (both in the project root):
   - Start frontend server -- `npm run dev`
   - Start backend server -- `php artisan serve`
