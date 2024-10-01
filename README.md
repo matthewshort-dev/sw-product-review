@@ -28,7 +28,7 @@ Install my-project with npm
 #### 7. In separate terminal tabs (both in the project root):
   - Start frontend server -- `npm run dev`
   - Start backend server -- `php artisan serve`
-- Navigate to `localhost:8000/login`
+- Navigate to `localhost:8000`
 
 
     
