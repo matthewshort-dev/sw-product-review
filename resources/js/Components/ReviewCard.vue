@@ -2,7 +2,35 @@
     <article class="max-w-2xl mx-2 sm:mx-auto p-4 pb-2 sm:p-6 lg:p-8 lg:pb-4">
         <div class="bg-gray-100 shadow-sm rounded-lg p-6 sm:p-10">
             <header>
-                <h2 :id="`review-${review.id}`" class="text-lg text-gray-900 font-bold">{{ review.review_title }}</h2>
+                <div class="flex justify-between items-center">
+                    <h2 :id="`review-${review.id}`" class="text-lg text-gray-900 font-bold">{{ review.review_title }}</h2>
+                    <Dropdown v-if="review.user_id === $page.props.auth.user.id || $page.props.auth.user.is_admin">
+                        <template #trigger>
+                            <button
+                                type="button"
+                                aria-haspopup="true"
+                                :aria-controls="`dropdown-menu-${review.id}`"
+                            >
+                                <span class="sr-only">Review options</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                                </svg>
+                            </button>
+                        </template>
+                        <template #content>
+                            <div :id="`dropdown-menu-${review.id}`" role="menu" aria-orientation="vertical" aria-labelledby="`review-options-${review.id}`">
+                                <DropdownLink
+                                    as="button"
+                                    :href="route('reviews.destroy', review.id)"
+                                    method="delete"
+                                    role="menuitem"
+                                >
+                                    Delete
+                                </DropdownLink>
+                            </div>
+                        </template>
+                    </Dropdown>
+                </div>
                 <div class="mt-1 flex text-sm text-gray-700">
                     <span>{{ review.user_name }}</span>
                     <span class="mx-1" aria-hidden="true">&middot;</span>
@@ -35,6 +63,8 @@
     </article>
 </template>
 <script setup>
+    import Dropdown from '@/Components/Dropdown.vue';
+    import DropdownLink from '@/Components/DropdownLink.vue';
     import dayjs from 'dayjs';
     import relativeTime from 'dayjs/plugin/relativeTime';
     import ReviewImage from './ReviewImage.vue';
