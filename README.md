@@ -43,6 +43,7 @@ Password: 'password'
 If you would like to login as an admin to test some functionality you can use:
 
 Username: camwham@hausmail.com
+
 Password: 'admin'
 
 The only functionality added for admins is the ability to delete any review.  Non-admin users can only delete their own reviews.
